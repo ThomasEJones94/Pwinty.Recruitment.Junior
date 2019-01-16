@@ -37,9 +37,11 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 Write a suite of tests that cover as much code as you consider necessary. Consider using different images of differing sizes in your tests. Consider using different types of tests to test different functionality.
 
-- Task: Validation of input? Ensure we receive a valid filetype? 
-- Task: Define image as a parameter? i.e `prog.exe --image="images\img1.png"` or in csproj properties debug info?
-- Task: Consider Tools/frameworks? Out of scope? 
+- Task: Image Comparison
+
+Checkout git branch feature/image-comparison
+
+We now want to compare the average colour to a number of pre-defined reference colours. Complete the empty methods to do so.
 
 # Notes / comments
 
