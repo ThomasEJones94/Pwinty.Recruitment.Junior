@@ -29,19 +29,15 @@ tradeoffs would be involved? Update the code with your new approach
 
 # Tasks (advanced)
 
-- Task: Functional test
-
-Write a test for the above code. Consider what functionality needs testing and what types of tests need to be written.
-
-- Task: Test suite
-
-Write a suite of tests that cover as much code as you consider necessary. Consider using different images of differing sizes in your tests. Consider using different types of tests to test different functionality.
-
 - Task: Image Comparison
 
 Checkout git branch feature/image-comparison
 
-We now want to compare the average colour to a number of pre-defined reference colours. Complete the empty methods to do so.
+We now want to compare the average colour of the image to a number of pre-defined reference colours. Complete the GetClosestReferenceColour method to do so.
+
+- Task: Functional test
+
+Write a test for the above code. Consider what functionality needs testing and what types of tests need to be written.
 
 # Notes / comments
 
