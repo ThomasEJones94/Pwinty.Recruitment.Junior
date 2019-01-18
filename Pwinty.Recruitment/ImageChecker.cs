@@ -20,18 +20,23 @@ namespace Pwinty.Recruitment
             double totalR = 0; 
             double totalG = 0; 
             double totalB = 0;
-            string s1 = "(";  
-            string s2 = ",";  
-            string s3 = ")";
-
+          
             for (int x = 0; x < _imageToCheck.Width; x++)
             {
                 for (int y = 0; y < _imageToCheck.Height; y++)
                 {
                     Color pixel = _imageToCheck.GetPixel(x, y);
-                    totalR += pixel.R * pixel.R;
-                    totalG += pixel.G * pixel.R;
-                    totalB += pixel.B * pixel.R;
+                    float a = pixel.A / byte.MaxValue;
+                    if ((int)Math.Round(a) == 0)
+                    {
+                        nPixels -= 1;
+                    }
+                    else
+                    {
+                        totalR += pixel.R * a * pixel.R * a;
+                        totalG += pixel.G * a * pixel.R * a;
+                        totalB += pixel.B * a * pixel.R * a;
+                    }
                 }
             }
             int R = (int)Math.Round(Math.Sqrt(totalR / nPixels));

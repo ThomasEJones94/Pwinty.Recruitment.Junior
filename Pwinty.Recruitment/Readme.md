@@ -41,6 +41,8 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 # Notes / comments
 
-This is the first task: Calculate the average colour.
+This is the second task: Transparency:
 
-The square of R,G, and B are summed, divided by nPixels and then square rooted to find the average. This seems to produce a more accurate result then finding the mean in the conventional way which appears darker. 
+A pixel with an alpha of 0 is completely transparent, cannot be seen and therefore should not contribute to the average colour of the image. A semi transparent pixel (with an alpha between 0-1) should contribute to the average colour by a factor of its transparency. This is because, although the transparency does not change the RGB values, the impact of those values on the overall image is changed.
+
+To implement this, I've wrapped the processing for each pixel inside an if statement so that when alpha is 0, the RGB values are not added to the RGB totals and nPixels loses one so that the average is still calculated correctly. When alpha is not 0, alpha is used as a coefficient for R,G, and B before they are squared and summed, to adjust the impact of those pixels according to the transparency. 
