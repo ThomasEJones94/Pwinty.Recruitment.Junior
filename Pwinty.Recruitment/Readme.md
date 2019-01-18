@@ -41,5 +41,6 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 # Notes / comments
 
-Add your notes here
+This is the first task: Calculate the average colour.
 
+The square of R,G, and B are summed, divided by nPixels and then square rooted to find the average. This seems to produce a more accurate result then finding the mean in the conventional way which appears darker. 
