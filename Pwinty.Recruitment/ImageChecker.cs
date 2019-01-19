@@ -15,7 +15,7 @@ namespace Pwinty.Recruitment
         }
 
         public Color CalculateAverageColour()
-        {
+        { 
             double nPixels = _imageToCheck.Width * _imageToCheck.Height;
             double totalR = 0; 
             double totalG = 0; 
@@ -39,9 +39,13 @@ namespace Pwinty.Recruitment
                     }
                 }
             }
-            int R = (int)Math.Round(Math.Sqrt(totalR / nPixels));
-            int G = (int)Math.Round(Math.Sqrt(totalG / nPixels));
-            int B = (int)Math.Round(Math.Sqrt(totalB / nPixels));
+            float r = (float)Math.Sqrt(totalR / nPixels);
+            float g = (float)Math.Sqrt(totalG / nPixels);
+            float b = (float)Math.Sqrt(totalB / nPixels);
+            int R = (int)Math.Round(r);
+            int G = (int)Math.Round(g);
+            int B = (int)Math.Round(b);
+   
             return Color.FromArgb(R,G,B);
         }
         private Color GetColourAtPixel(int x, int y)

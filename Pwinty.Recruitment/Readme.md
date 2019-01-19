@@ -41,8 +41,22 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 # Notes / comments
 
-This is the second task: Transparency:
+This is the third task: Performance
 
-A pixel with an alpha of 0 is completely transparent, cannot be seen and therefore should not contribute to the average colour of the image. A semi transparent pixel (with an alpha between 0-1) should contribute to the average colour by a factor of its transparency. This is because, although the transparency does not change the RGB values, the impact of those values on the overall image is changed.
+There were several decisions made when writing the code in the function in tasks 1&2 that were for the sake of better performance. These include:
+- Using a 'for' statement instead of a 'foreach' statement to iterate through each pixel of the image.
+- Ensuring no unnecessary lines of code were contained in the function.
 
-To implement this, I've wrapped the processing for each pixel inside an if statement so that when alpha is 0, the RGB values are not added to the RGB totals and nPixels loses one so that the average is still calculated correctly. When alpha is not 0, alpha is used as a coefficient for R,G, and B before they are squared and summed, to adjust the impact of those pixels according to the transparency. 
+In this version, I have reduced the method call depth where multiple functions were used in the same line of code by creating an extra variables so that each line of code only calls one function.
+Example:
+
+Original:
+    int R = (int)Math.Round(Math.Sqrt(totalR / nPixels));
+    
+Improved:
+    float r = (float)Math.Sqrt(totalR / nPixels);
+    int R = (int)Math.Round(r);
+    
+Both versions produce the same result. The trade off is that this increases the lines of code within the CalculateAverageColour() however it still runs faster due to reduced call depth. 
+
+Using Stopwatch() from System.Diagnostics, the average elapsed ticks for the original code was consistently around 15700000. For the improved code the average elapsed ticks was consistently around 15300000.
