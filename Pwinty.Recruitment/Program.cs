@@ -13,6 +13,7 @@ namespace Pwinty.Recruitment
 
             var imageChecker = new ImageChecker((Bitmap)image);
             Console.WriteLine($"The average colour of the image is {imageChecker.CalculateAverageColour()}");
+            Console.WriteLine($"The closest matching colour is {imageChecker.GetClosestReferenceColour()}");
             Console.ReadKey();
         }
 

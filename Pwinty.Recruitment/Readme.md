@@ -41,22 +41,11 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 # Notes / comments
 
-This is the third task: Performance
+This is the fourth task(advanced): Image-comparison
 
-There were several decisions made when writing the code in the function in tasks 1&2 that were for the sake of better performance. These include:
-- Using a 'for' statement instead of a 'foreach' statement to iterate through each pixel of the image.
-- Ensuring no unnecessary lines of code were contained in the function.
+Inside ImageChecker.GetClosestReferenceColour() a loop iterates through each pair in the dictionary of reference colours to find the differences between the RGB values of the reference colours and the RGB values returned from ImageChecker.CalculateAverageColour().
 
-In this version, I have reduced the method call depth where multiple functions were used in the same line of code by creating an extra variables so that each line of code only calls one function.
-Example:
+Each value difference is multiplied by 0.3,0.59 and 0.11 for R,G and B respectively to weight each value according to our perception of these colours. Then they are squared and summed to give an overall RGB difference for each reference colour. These values are stored in 'deltaArray'.
 
-Original:
-    int R = (int)Math.Round(Math.Sqrt(totalR / nPixels));
-    
-Improved:
-    float r = (float)Math.Sqrt(totalR / nPixels);
-    int R = (int)Math.Round(r);
-    
-Both versions produce the same result. The trade off is that this increases the lines of code within the CalculateAverageColour() however it still runs faster due to reduced call depth. 
+'deltaArray' and 'keys'(an array containing the keys of the dictionary) are then used in a second loop to find the key to the minimum value which must be the closest to the average of the input image. The value paired with that key is returned.
 
-Using Stopwatch() from System.Diagnostics, the average elapsed ticks for the original code was consistently around 15700000. For the improved code the average elapsed ticks was consistently around 15300000.
