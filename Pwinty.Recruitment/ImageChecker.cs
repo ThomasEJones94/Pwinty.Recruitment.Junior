@@ -10,9 +10,9 @@ namespace Pwinty.Recruitment
     {
         private readonly Bitmap _imageToCheck;
 
-        private Dictionary<string, Color> _referenceColours = new Dictionary<string, Color>()
+        public Dictionary<string, Color> _referenceColours = new Dictionary<string, Color>()
         {
-            {"red", Color.FromArgb(255,0,0) },
+            { "red", Color.FromArgb(255,0,0) },
             { "olive",Color.FromArgb(128,128,0) },
             { "teal",Color.FromArgb(0,128,128) },
             { "purple",Color.FromArgb(128,0,128) }
@@ -25,10 +25,10 @@ namespace Pwinty.Recruitment
         }
 
         public Color CalculateAverageColour()
-        { 
+        {
             double nPixels = ImageWidth * ImageHeight;
-            double totalR = 0; 
-            double totalG = 0; 
+            double totalR = 0;
+            double totalG = 0;
             double totalB = 0;
 
             for (int x = 0; x < ImageWidth; x++)
@@ -55,7 +55,7 @@ namespace Pwinty.Recruitment
             int R = (int)Math.Round(r);
             int G = (int)Math.Round(g);
             int B = (int)Math.Round(b);
-            return Color.FromArgb(R,G,B);
+            return Color.FromArgb(R, G, B);
         }
 
         public Color GetClosestReferenceColour()
@@ -82,7 +82,7 @@ namespace Pwinty.Recruitment
                 var gDelta = Math.Abs(g2 - g1);
                 var bDelta = Math.Abs(b2 - b1);
 
-                double rgbDelta = Math.Pow(rDelta * 0.30, 2) + Math.Pow(gDelta * 0.59, 2) + Math.Pow(bDelta * 0.11, 2);
+                double rgbDelta = Math.Pow(rDelta*0.3, 2) + Math.Pow(gDelta*0.59, 2) + Math.Pow(bDelta*0.11, 2);
                 deltaArray[i] = rgbDelta;
             }
 
@@ -97,9 +97,9 @@ namespace Pwinty.Recruitment
                     closestColourValue = _referenceColours[closestColourKey];
                 }
             }
-
             return closestColourValue;
         }
+
 
         private Color GetColourAtPixel(int x, int y)
         {
