@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <None Remove="images\part1.png" />
+    <None Remove="images\hallmark_logo_purple.jpg" />
+    <None Remove="images\googleG.png" />
+    <None Remove="images\googlelogo_color_272x92dp.png" />
+    <None Remove="images\google_O_Yellow.png" />
   </ItemGroup>
 
   <ItemGroup>

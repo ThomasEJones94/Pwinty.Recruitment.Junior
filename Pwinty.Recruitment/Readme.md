@@ -41,5 +41,19 @@ Write a test for the above code. Consider what functionality needs testing and w
 
 # Notes / comments
 
-Add your notes here
+This is the fifth(advanced) task: Functional Test
 
+I have written a test in Program.cs where one can enter image file paths and its expected closest reference colour based on their visual perception.
+
+This tests the functionality of imageChecker.CalculateAverageColour() as well as imageChecker.GetClosestReferenceColour() because if either of these functions are not working well enough, the test will produce fails. Therefore, there is no need for unit tests.
+
+Potential unit test for imageChecker.CalculateAverageColour():
+    Method 1:
+        -Use same input image into this function and into an online average colour generator and compare results.
+    Method 2:
+        -Input image solid block of known RGB values. Assess how close the output of the function is to the known input values.
+        -Vary the opacity of a number of pixels and repeat the test. 
+        
+Potential unit test for imageChecker.GetClosestReferenceColour():
+    -Enter Color values with RGB values that match the values for each key in _refernceColours. Assess if the output is the same as the input.
+    -Enter Color values with RGB values where each value is +/-10 of the values in _referenceColours. Assess if the output produces the correct values of the corresponding input values.
