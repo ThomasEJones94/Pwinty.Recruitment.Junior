@@ -2,9 +2,7 @@
 
 This short exercise is meant to simulate some of the day to day work we do at Pwinty. There are a number of tasks, intended to cater for a wide range of candidates. Don't worry if you can't do any of it, and feel free to ask for help.
 
-**Important:** You will have been given access to your own private repository, named something like "recruitment-tech-test-yourusername". If you are not reading this README from that repo, or have not been invited to one, let @tomgallard know. 
-
-To submit- create your own branch off of master, commit and push your changes, and create a Pull Request into master when you're done. This should alert the team that you've finished.
+To submit- please make a fork of this Git repo, commit and push your changes, and then share the repo with @tomgallard. 
 
 Please use a seperate commit for each task. Add any notes/comments to the bottom of this file
 
